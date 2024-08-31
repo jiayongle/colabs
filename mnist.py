@@ -136,6 +136,8 @@ print('Test:', test_images.shape, test_labels.shape)
 """## Training loop"""
 
 import time
+import jax
+jax.profiler.start_trace("/tmp/tensorboard")
 
 def get_train_batches():
   # as_supervised=True gives us the (image, label) as a tuple instead of a dict
@@ -158,4 +160,6 @@ for epoch in range(num_epochs):
   print("Epoch {} in {:0.2f} sec".format(epoch, epoch_time))
   print("Training set accuracy {}".format(train_acc))
   print("Test set accuracy {}".format(test_acc))
+
+jax.profiler.stop_trace()
 
