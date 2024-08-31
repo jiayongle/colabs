@@ -148,7 +148,7 @@ def get_train_batches():
 
 jax.profiler.start_trace("/tmp/tensorboard")
 
-num_epochs
+num_epochs = 1
 for epoch in range(num_epochs):
   start_time = time.time()
   for x, y in get_train_batches():
