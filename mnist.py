@@ -137,7 +137,6 @@ print('Test:', test_images.shape, test_labels.shape)
 
 import time
 import jax
-jax.profiler.start_trace("/tmp/tensorboard")
 
 def get_train_batches():
   # as_supervised=True gives us the (image, label) as a tuple instead of a dict
@@ -147,6 +146,9 @@ def get_train_batches():
   # tfds.dataset_as_numpy converts the tf.data.Dataset into an iterable of NumPy arrays
   return tfds.as_numpy(ds)
 
+jax.profiler.start_trace("/tmp/tensorboard")
+
+num_epochs
 for epoch in range(num_epochs):
   start_time = time.time()
   for x, y in get_train_batches():
